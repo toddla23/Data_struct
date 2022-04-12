@@ -75,7 +75,7 @@ void evaluate(char postfix[])
     init(&S);
     
     char c;
-    int n = strlen(postfix);    // 대문자 A = 65 소문자 a = 97
+    int n = strlen(postfix);
 
     push(&S, postfix[0]);
 

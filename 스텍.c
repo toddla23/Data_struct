@@ -91,7 +91,6 @@ void evaluate(char postfix[])
         if(c < 97)
             c += 32;
 
-        push()
 
 
     }
