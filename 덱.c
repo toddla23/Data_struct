@@ -50,13 +50,14 @@ void addFront(DequeType* D, char e)
     D->data[D->front] = e;
 }
 
-char delteRear(DequeType* D)
+char deleteRear(DequeType* D)
 {
-        if(isEmpty(D))
+    if(isEmpty(D))
     {
-        pritnf("EMPTY!!\n");
-        return;
+        printf("EMPTY!!\n");
+        return 0;
     }
+
     int pos = D->rear;
     D->rear = (D->rear - 1 + SIZE) % SIZE;
     return D->data[pos];
@@ -66,10 +67,10 @@ char deleteFront(DequeType* D)
 {
     if(isEmpty(D))
     {
-        pritnf("EMPTY!!\n");
-        return;
+        printf("EMPTY!!\n");
+        return 0;
     }
-
+    int pos = D->front;
     D->front = (D->front + 1) % SIZE;
     return D->data[D->front];
 }
@@ -108,7 +109,7 @@ int main(void)
 
     
      for(int i = 0; i < 3; i++)
-        printf("[%c] ", deleterear(&D));
+        printf("[%c] ", deleteRear(&D));
     printf("\n\n");
     print(&D); getchar();
 
