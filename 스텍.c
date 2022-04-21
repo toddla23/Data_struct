@@ -155,7 +155,7 @@ int main(void)
 {
     char exp[SIZE];
     scanf("%s", exp);
-    printf("%d\n", evaluate(exp));
+
 
     return 0;
 }
