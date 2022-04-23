@@ -6,10 +6,9 @@ typedef struct ListNode
 {
     char data;
     struct ListNode* next;
-    
 }ListNode;
 
-typedef struct ListType
+typedef struct
 {
     ListNode* H;
 }ListType;
@@ -19,28 +18,30 @@ void init(ListType* L)
     L->H = NULL;
 }
 
-void push(ListType* L, char e)
+void enqueue(ListType* L, char e)
 {
     ListNode* node = (ListNode*)malloc(sizeof(ListNode));
     node->data = e;
+
     node->next = L->H;
     L->H = node;
 }
 
-char pop(ListType* DL)
+char dequeue(ListType* L)
 {
-    ListNode* p = DL->H;
-    DL->H = p->next;
+    ListNode* p = L->H;
+    ListNode* q;
+    while(p->next != NULL)
+    {
+        q = p;
+        p = p->next;
+    }
+
     char e = p->data;
-
+    q->next = NULL;
     free(p);
-
+    
     return e;
-}
-
-char peek(ListType* DL)
-{
-    return DL->H->data;
 }
 
 void print(ListType* L)
@@ -53,24 +54,24 @@ void print(ListType* L)
 
 int main(void)
 {
-
     ListType DL;
     init(&DL);
 
-    push(&DL, 'A'); print(&DL);
-    push(&DL, 'B'); print(&DL);
-    push(&DL, 'C'); print(&DL);
-    push(&DL, 'D'); print(&DL);
-    push(&DL, 'E'); print(&DL);
-    push(&DL, 'F'); print(&DL);
+    enqueue(&DL, 'A'); print(&DL);
+    enqueue(&DL, 'B'); print(&DL);
+    enqueue(&DL, 'C'); print(&DL);
+    enqueue(&DL, 'D'); print(&DL);
+    enqueue(&DL, 'E'); print(&DL);
+    enqueue(&DL, 'F'); print(&DL);
     getchar();
 
-    printf("%c \n", pop(&DL));    print(&DL);
-    printf("%c \n", pop(&DL));    print(&DL);
+    printf("%c \n", dequeue(&DL));    print(&DL);
+    printf("%c \n", dequeue(&DL));    print(&DL);
     getchar();
 
-    printf("%c \n", peek(&DL));    print(&DL);
-    printf("%c \n", peek(&DL));    print(&DL);
+
+
+
 
 
     return 0;
