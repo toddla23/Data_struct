@@ -46,7 +46,7 @@ void addFront(DequeType* D, char e)
         return;
     }
 
-    D->front = (D->front - 1 )% SIZE;
+    D->front = (D->front - 1)% SIZE;
     D->data[D->front] = e;
 }
 

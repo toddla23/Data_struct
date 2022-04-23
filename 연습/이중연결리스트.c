@@ -5,8 +5,7 @@
 typedef struct DListNode
 {
     char data;
-    struct DListNode* prev, * next;
-
+    struct DListNode* prev,* next;
 }DListNode;
 
 void init(DListNode* H, DListNode* T)
@@ -17,19 +16,21 @@ void init(DListNode* H, DListNode* T)
 
 void insert(DListNode* H, int pos, char e)
 {
-    DListNode *p = H;
-    
+    DListNode* node = (DListNode*)malloc(sizeof(DListNode));
+    node->data = e;
+
+    DListNode* p = H;
+
     for(int i = 1; i < pos; i++)
         p = p->next;
 
-    DListNode* node = (DListNode*)malloc(sizeof(DListNode));
-    node->data = e;
-    node->prev = p;
     node->next = p->next;
-    
-    p->next->prev = node; //여기부분 어려움!!!! 야발
+    node->prev = p;
+
+    p->next->prev = node;
     p->next = node;
 }
+
 
 char delete(DListNode* H, int pos)
 {
