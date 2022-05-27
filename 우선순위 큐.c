@@ -60,7 +60,7 @@ void downHeap(HeapType* H)
 int removeItem(HeapType* H)
 {
     int item = H->heap[1];
-    H->heap[1] = H->heap[H->heapSize];
+    H->heap[1] = H->heap[H->heapSize];  
     H->heapSize--;
 
     downHeap(H);
