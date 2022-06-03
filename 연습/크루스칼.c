@@ -87,6 +87,11 @@ void insertEdge(Graph* G, char e1, char e2, int weight)
     makeIncidentEdge(G, v1, e1, weight);
 }
 
+void kruskal(Graph* G)
+{
+
+}
+
 
 void print(Graph* G)
 {
@@ -108,11 +113,11 @@ void print(Graph* G)
     }
 }
 
-
 int main(void)
 {
     Graph G;
     init(&G);
+
 
     insertVertex(&G, 'a');
     insertVertex(&G, 'b');
@@ -123,14 +128,17 @@ int main(void)
     insertVertex(&G, 'g');
 
 
+
     insertEdge(&G, 'a', 'b', 29); insertEdge(&G, 'a', 'f', 10);
     insertEdge(&G, 'b', 'c', 16); insertEdge(&G, 'b', 'g', 15);
     insertEdge(&G, 'c', 'd', 12); insertEdge(&G, 'd', 'g', 18);
     insertEdge(&G, 'd', 'e', 22); insertEdge(&G, 'e', 'f', 27);
-    insertEdge(&G, 'e', 'g', 25); 
+    insertEdge(&G, 'e', 'g', 25);
+
+
+
     print(&G);
 
-    
 
 
 
