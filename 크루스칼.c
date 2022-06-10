@@ -164,14 +164,15 @@ int vFind(int v[], int vNum)
     while (v[vNum] != -1)
         vNum = v[vNum];
 
+
+
     return vNum;    
 }
 
 void vUnion(int v[], int vNum1, int vNum2)
 {
-    int r1 = vFind(v, vNum1);
-    int r2 = vFind(v, vNum2);
-
+    int r1 = vFind(v, vNum1); // 0
+    int r2 = vFind(v, vNum2); // 5
 
     if (r1 != r2)
         v[r2] = r1;
@@ -189,8 +190,10 @@ void kruskal(GraphType* G, Edge* e[], int v[])
     while(eCnt < G->vCount - 1)
     {
         p = e[i];
-        vNum1 = vFind(v, p->v1 - 97);
-        vNum2 = vFind(v, p->v2 - 97);
+        vNum1 = vFind(v, p->v1 - 97);   //3    2
+        vNum2 = vFind(v, p->v2 - 97);   //6    1
+
+        
 
         if(vNum1 != vNum2)
         {
@@ -224,5 +227,9 @@ int main()
 
     int v[10] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
     kruskal(&G, e, v);
+
+    for(int i = 0; i < 10; i++)
+        printf("[%d] ", v[i]);
+    printf("\n");
     
 }
